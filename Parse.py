@@ -1,5 +1,5 @@
-import fitz
 import os
+import fitz
 from glob import glob
 import csv
 import re
@@ -9,8 +9,9 @@ def cleanup_text(raw_text):
     cleaned_text = re.sub(r'\s+', ' ', raw_text).strip()
     return cleaned_text
 
-pdf_folder = r'C:\Users\ALAN\Desktop\Parse\PDF_Folder'
-output_csv = r'C:\Users\ALAN\Desktop\Parse\output.csv'
+script_directory = os.path.dirname(os.path.abspath(__file__))
+pdf_folder = os.path.join(script_directory, 'PDF_Folder')
+output_csv = os.path.join(script_directory, 'output.csv')
 
 # Get a list of all PDF files in the folder
 pdf_files = glob(os.path.join(pdf_folder, '*.pdf'))
